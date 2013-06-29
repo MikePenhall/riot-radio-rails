@@ -1,6 +1,6 @@
 class AdministratorsController < ApplicationController
 
-  before_filter :authenticate_user!
+  load_and_authorize_resource params: :administrator_params
 
   # GET /administrators
   # GET /administrators.json
