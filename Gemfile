@@ -6,8 +6,7 @@ gem 'pg'
 gem 'jbuilder', '~> 1.2'
 gem 'turbolinks'
 gem 'devise'
-gem 'rspec-rails'
-gem 'factory_girl_rails'
+gem 'cancan', :git => 'https://github.com/3months/cancan', :branch => 'strong_parameters'
 
 #Frontend
 gem 'sass-rails', '~> 4.0.0'
@@ -17,3 +16,13 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
+
+group :development, :test do
+  gem 'rspec-rails' # Must be in development group for rake tasks to work
+  gem 'debugger'
+end
+
+group :test do
+  gem 'shoulda'
+  gem 'factory_girl_rails'
+end

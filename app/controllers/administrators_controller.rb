@@ -1,10 +1,10 @@
 class AdministratorsController < ApplicationController
-  before_action :set_administrator, only: [:show, :edit, :update, :destroy]
+
+  before_filter :authenticate_user!
 
   # GET /administrators
   # GET /administrators.json
   def index
-    @administrators = Administrator.all
   end
 
   # GET /administrators/1
@@ -14,7 +14,6 @@ class AdministratorsController < ApplicationController
 
   # GET /administrators/new
   def new
-    @administrator = Administrator.new
   end
 
   # GET /administrators/1/edit
@@ -24,41 +23,26 @@ class AdministratorsController < ApplicationController
   # POST /administrators
   # POST /administrators.json
   def create
-    @administrator = Administrator.new(administrator_params)
-
-    respond_to do |format|
-      if @administrator.save
-        format.html { redirect_to @administrator, notice: 'Administrator was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @administrator }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @administrator.errors, status: :unprocessable_entity }
-      end
+    if @administrator.save
+      redirect_to @administrator, notice: 'Administrator was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
   # PATCH/PUT /administrators/1
-  # PATCH/PUT /administrators/1.json
   def update
-    respond_to do |format|
-      if @administrator.update(administrator_params)
-        format.html { redirect_to @administrator, notice: 'Administrator was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @administrator.errors, status: :unprocessable_entity }
-      end
+    if @administrator.update(administrator_params)
+      redirect_to @administrator, notice: 'Administrator was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
   # DELETE /administrators/1
-  # DELETE /administrators/1.json
   def destroy
     @administrator.destroy
-    respond_to do |format|
-      format.html { redirect_to administrators_url }
-      format.json { head :no_content }
-    end
+    redirect_to administrators_url, notice: 'Administrator was successfully deleted.'
   end
 
   private
