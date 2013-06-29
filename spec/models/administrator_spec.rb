@@ -6,17 +6,6 @@ describe Administrator do
   end
 
   describe "included Devise modules" do
-    it "should be trackable" do
-      subject.class.included_modules.should include Devise::Models::Trackable
-    end
-
-    it "should be lockable" do
-      subject.class.included_modules.should include Devise::Models::Lockable
-    end
-
-    it "should be timeoutable" do
-      subject.class.included_modules.should include Devise::Models::Timeoutable
-    end
 
     it "should be recoverable" do
       subject.class.included_modules.should include Devise::Models::Recoverable
