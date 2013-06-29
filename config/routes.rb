@@ -1,6 +1,8 @@
 RiotRadioRails::Application.routes.draw do
   devise_for :administrators
 
+  resources :administrators
+
   authenticated :administrators do
     root :to => 'dashboard#show', :as => :administrator_root
   end

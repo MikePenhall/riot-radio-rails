@@ -7,7 +7,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'turbolinks'
 gem 'devise'
 gem 'rspec-rails'
-gem "factory_girl_rails"
+gem 'factory_girl_rails'
 
 #Frontend
 gem 'sass-rails', '~> 4.0.0'
