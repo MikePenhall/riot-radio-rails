@@ -28,5 +28,4 @@ describe Administrator do
     end
   end
 
-
 end

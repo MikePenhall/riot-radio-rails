@@ -23,17 +23,13 @@ describe AdministratorsController do
   # This should return the minimal set of attributes required to create a valid
   # Administrator. As you add validations to Administrator, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {  } }
-
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # AdministratorsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:administrator) { create(:administrator) }
+  let(:valid_attributes) { attributes_for(:administrator) }
 
   describe "GET index" do
     it "assigns all administrators as @administrators" do
       administrator = Administrator.create! valid_attributes
-      get :index, {}, valid_session
+      get :index, {}
       assigns(:administrators).should eq([administrator])
     end
   end
@@ -41,14 +37,14 @@ describe AdministratorsController do
   describe "GET show" do
     it "assigns the requested administrator as @administrator" do
       administrator = Administrator.create! valid_attributes
-      get :show, {:id => administrator.to_param}, valid_session
+      get :show, {:id => administrator.to_param}
       assigns(:administrator).should eq(administrator)
     end
   end
 
   describe "GET new" do
     it "assigns a new administrator as @administrator" do
-      get :new, {}, valid_session
+      get :new, {}
       assigns(:administrator).should be_a_new(Administrator)
     end
   end
@@ -56,7 +52,7 @@ describe AdministratorsController do
   describe "GET edit" do
     it "assigns the requested administrator as @administrator" do
       administrator = Administrator.create! valid_attributes
-      get :edit, {:id => administrator.to_param}, valid_session
+      get :edit, {:id => administrator.to_param}
       assigns(:administrator).should eq(administrator)
     end
   end
@@ -65,18 +61,18 @@ describe AdministratorsController do
     describe "with valid params" do
       it "creates a new Administrator" do
         expect {
-          post :create, {:administrator => valid_attributes}, valid_session
+          post :create, {:administrator => valid_attributes}
         }.to change(Administrator, :count).by(1)
       end
 
       it "assigns a newly created administrator as @administrator" do
-        post :create, {:administrator => valid_attributes}, valid_session
+        post :create, {:administrator => valid_attributes}
         assigns(:administrator).should be_a(Administrator)
         assigns(:administrator).should be_persisted
       end
 
       it "redirects to the created administrator" do
-        post :create, {:administrator => valid_attributes}, valid_session
+        post :create, {:administrator => valid_attributes}
         response.should redirect_to(Administrator.last)
       end
     end
@@ -85,14 +81,14 @@ describe AdministratorsController do
       it "assigns a newly created but unsaved administrator as @administrator" do
         # Trigger the behavior that occurs when invalid params are submitted
         Administrator.any_instance.stub(:save).and_return(false)
-        post :create, {:administrator => {  }}, valid_session
+        post :create, {:administrator => {  }}
         assigns(:administrator).should be_a_new(Administrator)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Administrator.any_instance.stub(:save).and_return(false)
-        post :create, {:administrator => {  }}, valid_session
+        post :create, {:administrator => {  }}
         response.should render_template("new")
       end
     end
@@ -107,18 +103,18 @@ describe AdministratorsController do
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
         Administrator.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => administrator.to_param, :administrator => { "these" => "params" }}, valid_session
+        put :update, {:id => administrator.to_param, :administrator => { "these" => "params" }}
       end
 
       it "assigns the requested administrator as @administrator" do
         administrator = Administrator.create! valid_attributes
-        put :update, {:id => administrator.to_param, :administrator => valid_attributes}, valid_session
+        put :update, {:id => administrator.to_param, :administrator => valid_attributes}
         assigns(:administrator).should eq(administrator)
       end
 
       it "redirects to the administrator" do
         administrator = Administrator.create! valid_attributes
-        put :update, {:id => administrator.to_param, :administrator => valid_attributes}, valid_session
+        put :update, {:id => administrator.to_param, :administrator => valid_attributes}
         response.should redirect_to(administrator)
       end
     end
@@ -128,7 +124,7 @@ describe AdministratorsController do
         administrator = Administrator.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Administrator.any_instance.stub(:save).and_return(false)
-        put :update, {:id => administrator.to_param, :administrator => {  }}, valid_session
+        put :update, {:id => administrator.to_param, :administrator => { :email => '' }}
         assigns(:administrator).should eq(administrator)
       end
 
@@ -136,7 +132,7 @@ describe AdministratorsController do
         administrator = Administrator.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Administrator.any_instance.stub(:save).and_return(false)
-        put :update, {:id => administrator.to_param, :administrator => {  }}, valid_session
+        put :update, {:id => administrator.to_param, :administrator => { :email => '' }}
         response.should render_template("edit")
       end
     end
@@ -146,13 +142,13 @@ describe AdministratorsController do
     it "destroys the requested administrator" do
       administrator = Administrator.create! valid_attributes
       expect {
-        delete :destroy, {:id => administrator.to_param}, valid_session
+        delete :destroy, {:id => administrator.to_param}
       }.to change(Administrator, :count).by(-1)
     end
 
     it "redirects to the administrators list" do
       administrator = Administrator.create! valid_attributes
-      delete :destroy, {:id => administrator.to_param}, valid_session
+      delete :destroy, {:id => administrator.to_param}
       response.should redirect_to(administrators_url)
     end
   end

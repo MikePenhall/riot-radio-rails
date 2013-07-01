@@ -1,15 +1,15 @@
 class AdministratorsController < ApplicationController
 
-  load_and_authorize_resource params: :administrator_params
-
   # GET /administrators
   # GET /administrators.json
   def index
+    @administrators = Administrator.all
   end
 
   # GET /administrators/1
   # GET /administrators/1.json
   def show
+    @administrator = Administrator.find(params[:id])
   end
 
   # GET /administrators/new
@@ -18,6 +18,7 @@ class AdministratorsController < ApplicationController
 
   # GET /administrators/1/edit
   def edit
+    @administrator = Administrator.find(params[:id])
   end
 
   # POST /administrators
