@@ -26,6 +26,10 @@ describe AdministratorsController do
   let(:administrator) { create(:administrator) }
   let(:valid_attributes) { attributes_for(:administrator) }
 
+  before do
+    sign_in administrator
+  end
+
   describe "GET index" do
     it "assigns all administrators as @administrators" do
       administrator = Administrator.create! valid_attributes
@@ -81,14 +85,14 @@ describe AdministratorsController do
       it "assigns a newly created but unsaved administrator as @administrator" do
         # Trigger the behavior that occurs when invalid params are submitted
         Administrator.any_instance.stub(:save).and_return(false)
-        post :create, {:administrator => {  }}
+        post :create, {:administrator => { :email => "" }}
         assigns(:administrator).should be_a_new(Administrator)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Administrator.any_instance.stub(:save).and_return(false)
-        post :create, {:administrator => {  }}
+        post :create, {:administrator => { :email => "" }}
         response.should render_template("new")
       end
     end
