@@ -6,7 +6,6 @@ gem 'pg'
 gem 'jbuilder', '~> 1.2'
 gem 'turbolinks'
 gem 'devise'
-gem 'cancan', :git => 'https://github.com/3months/cancan', :branch => 'strong_parameters'
 
 #Frontend
 gem 'sass-rails', '~> 4.0.0'

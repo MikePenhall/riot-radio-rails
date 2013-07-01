@@ -23,8 +23,8 @@ describe Administrator do
       subject.class.included_modules.should include Devise::Models::Validatable
     end
 
-    it "should not be registerable" do
-      subject.class.included_modules.should_not include Devise::Models::Registerable
+    it "should be registerable" do
+      subject.class.included_modules.should include Devise::Models::Registerable
     end
   end
 
