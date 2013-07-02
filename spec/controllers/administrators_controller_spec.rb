@@ -33,7 +33,7 @@ describe AdministratorsController do
   describe "GET index" do
     it "assigns all administrators as @administrators" do
       administrator = Administrator.create! valid_attributes
-      get :index, {}
+      get :index
       assigns(:administrators).should have_at_least(1).administrator
     end
   end
@@ -48,13 +48,13 @@ describe AdministratorsController do
 
   describe "GET new" do
     it "assigns a new administrator as @administrator" do
-      get :new, {}
+      get :new
       assigns(:administrator).should be_a_new(Administrator)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested administrator as @administrator" do
+    it "assigns the srequested administrator as @administrator" do
       administrator = Administrator.create! valid_attributes
       get :edit, {:id => administrator.to_param}
       assigns(:administrator).should eq(administrator)

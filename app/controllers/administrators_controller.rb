@@ -12,7 +12,7 @@ class AdministratorsController < ApplicationController
     @administrator = Administrator.find(params[:id])
   end
 
-  # GET /administrators/new
+  # GET /administrators/newl
   def new
   end
 
@@ -24,7 +24,7 @@ class AdministratorsController < ApplicationController
   # POST /administrators
   # POST /administrators.json
   def create
-    if @administrator.save
+    if Administrator.new(administrator_params)
       redirect_to @administrator, notice: 'Administrator was successfully created.'
     else
       render action: 'new'
@@ -49,6 +49,6 @@ class AdministratorsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def administrator_params
-      params.require(:administrator).permit(:email, :password, :password_confirmation)
+      params.require(:administrator).permit(:email, :password)
     end
 end
