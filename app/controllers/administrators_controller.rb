@@ -1,5 +1,5 @@
 class AdministratorsController < ApplicationController
-
+  layout 'dashboard'
   # GET /administrators
   # GET /administrators.json
   def index
@@ -18,13 +18,12 @@ class AdministratorsController < ApplicationController
 
   # GET /administrators/1/edit
   def edit
-    @administrator = Administrator.find(params[:id])
   end
 
   # POST /administrators
   # POST /administrators.json
   def create
-    if Administrator.new(administrator_params)
+    if @administrator.save
       redirect_to @administrator, notice: 'Administrator was successfully created.'
     else
       render action: 'new'
