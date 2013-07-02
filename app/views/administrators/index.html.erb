@@ -1,8 +1,9 @@
 <h1>Listing administrators</h1>
 
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
+      <th>Email</th>
       <th></th>
       <th></th>
       <th></th>
@@ -12,6 +13,7 @@
   <tbody>
     <% @administrators.each do |administrator| %>
       <tr>
+        <td><%= administrator.email %></td>
         <td><%= link_to 'Show', administrator %></td>
         <td><%= link_to 'Edit', edit_administrator_path(administrator) %></td>
         <td><%= link_to 'Destroy', administrator, method: :delete, data: { confirm: 'Are you sure?' } %></td>

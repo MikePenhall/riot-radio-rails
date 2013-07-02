@@ -12,7 +12,7 @@ class AdministratorsController < ApplicationController
     @administrator = Administrator.find(params[:id])
   end
 
-  # GET /administrators/newl
+  # GET /administrators/new
   def new
   end
 
