@@ -1,17 +1,10 @@
 <p id="notice"><%= notice %></p>
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<p>Email</p>
+<p><%= @administrator.email %></p>
 
-  <tbody>
-    <tr>
-      <td><%= @administrator.email %></td>
+<table>
+   <tbody>
+    <tr> 
       <td><%= link_to 'Show', @administrator %></td>
       <td><%= link_to 'Edit', edit_administrator_path(@administrator) %></td>
       <td><%= link_to 'Destroy', @administrator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -19,5 +12,7 @@
   </tbody>
 </table>
 
-<%= link_to 'Edit', edit_administrator_path(@administrator) %> |
-<%= link_to 'Back', administrators_path %>
+<div class="form-actions">
+  <%= link_to 'Edit', edit_administrator_path(@administrator) %> |
+  <%= link_to 'Back', administrators_path %>
+</div>  

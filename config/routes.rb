@@ -3,9 +3,5 @@ RiotRadioRails::Application.routes.draw do
 
   resources :administrators
 
-  authenticated :administrators do
-    root :to => 'dashboard#show', :as => :administrator_root
-  end
-
   root :to => 'dashboard#show'
 end
