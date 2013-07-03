@@ -106,8 +106,8 @@ describe AdministratorsController do
         # specifies that the Administrator created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Administrator.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => administrator.to_param, :administrator => { "these" => "params" }}
+        Administrator.any_instance.should_receive(:update).with({ "email" => "test@test.com" })
+        put :update, {:id => administrator.to_param, :administrator => { :email => "test@test.com" }}
       end
 
       it "assigns the requested administrator as @administrator" do
