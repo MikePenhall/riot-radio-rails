@@ -2,6 +2,9 @@ class AdministratorsController < ApplicationController
   layout 'dashboard'
   # GET /administrators
   # GET /administrators.json
+  before_filter :authenticate_administrator!
+  before_filter :set_administrator, only: [:show, :edit, :update, :destroy]
+
   def index
     @administrators = Administrator.all
   end
@@ -9,11 +12,11 @@ class AdministratorsController < ApplicationController
   # GET /administrators/1
   # GET /administrators/1.json
   def show
-    @administrator = Administrator.find(params[:id])
   end
 
   # GET /administrators/new
   def new
+    @administrator = Administrator.new
   end
 
   # GET /administrators/1/edit
@@ -23,6 +26,7 @@ class AdministratorsController < ApplicationController
   # POST /administrators
   # POST /administrators.json
   def create
+    @administrator = Administrator.new(administrator_params)
     if @administrator.save
       redirect_to @administrator, notice: 'Administrator was successfully created.'
     else
@@ -46,8 +50,14 @@ class AdministratorsController < ApplicationController
   end
 
   private
+    
+    def set_administrator
+      @administrator = Administrator.find(params[:id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
+    # these are the things we can set when saving
     def administrator_params
-      params.require(:administrator).permit(:email, :password)
+      params.require(:administrator).permit(:email, :password, :current_password)
     end
 end
