@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
-  vaildates :title {presence: :true}
+  validates :title { presence: :true },
+            :body { presence: :true },
+            :slug { presence: :true, uniqueness: :true }
 
 end
