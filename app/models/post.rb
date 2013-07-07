@@ -3,14 +3,23 @@ class Post < ActiveRecord::Base
   serialize :tags, Array
   serialize :categories, Array
 
+  belongs_to :administrator
+
+  before_save :generate_slug, on: :create, 
+  before_save :format_tags_and_categories
+
   validates :title, presence: :true
   validates :body, presence: :true
-  validates :slug, { presence: :true, uniqueness: :true }
+  # validates :slug, { presence: :true, uniqueness: :true }
 
-  before_create :generate_slug
 
 
   private
+    def format_tags_and_categories
+      self.tags.split(",")
+      self.categories.split(",")
+    end  
+
     def generate_slug
       slug = self.title.strip
 
