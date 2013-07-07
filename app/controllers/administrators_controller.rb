@@ -3,7 +3,6 @@ class AdministratorsController < ApplicationController
   # GET /administrators
   # GET /administrators.json
   before_filter :authenticate_administrator!
-  prepend_before_filter :require_no_authentication, :only => [:create]
   before_filter :set_administrator, only: [:show, :edit, :update, :destroy]
 
   def index
