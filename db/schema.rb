@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20130707023021) do
     t.text     "excerpt"
     t.string   "tags"
     t.string   "categories"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.text :excerpt
       t.string :tags
       t.string :categories
+      t.string :slug
 
       t.timestamps
     end

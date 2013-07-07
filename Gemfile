@@ -5,7 +5,8 @@ gem 'rails', '4.0.0'
 gem 'pg'
 gem 'jbuilder', '~> 1.2'
 gem 'turbolinks'
-gem 'devise', :git => 'git@github.com:plataformatec/devise.git', :branch => 'rails4'
+gem 'devise'
+# , :git => 'git@github.com:plataformatec/devise.git', :branch => 'rails4'
 
 #Frontend
 gem 'sass-rails', '~> 4.0.0'
