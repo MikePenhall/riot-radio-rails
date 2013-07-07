@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<p>Email</p>
+<p><%= @administrator.email %></p>
+
+<table>
+   <tbody>
+    <tr> 
+      <td><%= link_to 'Show', @administrator %></td>
+      <td><%= link_to 'Edit', edit_administrator_path(@administrator) %></td>
+      <td><%= link_to 'Destroy', @administrator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="form-actions">
+  <%= link_to 'Edit', edit_administrator_path(@administrator) %> |
+  <%= link_to 'Back', administrators_path %>
+</div>  

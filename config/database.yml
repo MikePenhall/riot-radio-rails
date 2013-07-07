@@ -1,0 +1,7 @@
+development: 
+  adapter: postgresql
+  database: riot_radio_rails_test
+
+test: 
+  adapter: postgresql
+  database: riot_radio_rails_test

@@ -1,0 +1,21 @@
+<h2>Sign in</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
+  <div>
+    <div class="control-group">
+      <%= f.label :email, :class => "control-label" %>
+      <%= f.email_field :email, :autofocus => true, :class => "controls"%>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :password, :class => "control-label" %>
+      <%= f.password_field :password, :class => "controls" %> 
+    </div>
+
+    <div class="actions form-actions">
+      <%= f.submit "Sign in", :class =>'btn btn-primary' %>
+    </div>
+   <div> 
+   <%= render :partial => "devise/shared/links" %> 
+<% end %>
+
