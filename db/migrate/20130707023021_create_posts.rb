@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :tags
       t.string :categories
       t.string :slug
+      t.belongs_to :administrator
 
       t.timestamps
     end

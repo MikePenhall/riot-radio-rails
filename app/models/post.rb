@@ -1,4 +1,8 @@
 class Post < ActiveRecord::Base
+
+  serialize :tags, Array
+  serialize :categories, Array
+
   validates :title, presence: :true
   validates :body, presence: :true
   validates :slug, { presence: :true, uniqueness: :true }

@@ -8,4 +8,5 @@ class Administrator < ActiveRecord::Base
          :trackable, 
          :validatable
 
+  has_may :posts       
 end
