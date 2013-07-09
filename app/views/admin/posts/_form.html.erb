@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= form_for(admin_posts_path(@post)) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -45,6 +45,6 @@
  
   <div class="form-actions">
     <%= f.submit :class => 'btn btn-primary' %>
-    <%= link_to 'Cancel', Administrator, :class => 'btn' %>
+    <%= link_to 'Cancel', admin_posts_path, :class => 'btn' %>
   </div>
 <% end %>
