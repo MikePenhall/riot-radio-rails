@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :administrator
 
-  before_save :generate_slug, on: :create, 
+  before_save :generate_slug, on: :create
   before_save :format_tags_and_categories
 
   validates :title, presence: :true
