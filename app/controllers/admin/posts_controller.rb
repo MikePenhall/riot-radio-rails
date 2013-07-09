@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Admin::PostsController < ApplicationController
   layout 'dashboard'
   before_filter :set_post, only: [:show, :edit, :update, :destroy]
 
