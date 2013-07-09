@@ -2,11 +2,13 @@ RiotRadioRails::Application.routes.draw do
 
   devise_for :administrators, path_prefix: "admin"
 
+  get '/admin', to: 'dashboard#show', as: 'admin_root'
+
   resources :administrators
 
   namespace :admin do
     resources :posts
   end  
 
-  root :to => 'dashboard#show'
+  root :to => 'posts#index'
 end

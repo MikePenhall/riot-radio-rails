@@ -8,9 +8,6 @@
       <th>Excerpt</th>
       <th>Tags</th>
       <th>Categories</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -22,14 +19,9 @@
         <td><%= post.excerpt %></td>
         <td><%= post.tags %></td>
         <td><%= post.categories %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Post', new_post_path %>
