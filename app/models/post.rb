@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
     def check_for_slug
       if !self.slug.present?
         generate_slug
-      elsif
+      elsif self.slug.match(' ')
         generate_slug(self.slug)
       end  
       return
@@ -26,7 +26,7 @@ class Post < ActiveRecord::Base
       if string.nil?
         string = self.title
       end  
-      self.slug = string.parameterize.dasherize
+      self.slug = string.parameterize.dasherize.downcase
     end  
 
 end
