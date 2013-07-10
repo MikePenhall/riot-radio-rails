@@ -6,8 +6,7 @@ gem 'pg'
 gem 'jbuilder', '~> 1.2'
 gem 'turbolinks'
 gem 'devise'
-# , :git => 'git@github.com:plataformatec/devise.git', :branch => 'rails4'
-# gem 'slugify'
+gem 'ckeditor_rails'
 
 #Frontend
 gem 'sass-rails', '~> 4.0.0'
