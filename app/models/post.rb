@@ -1,8 +1,5 @@
 class Post < ActiveRecord::Base
 
-  serialize :tags, Array
-  serialize :categories, Array
-
   belongs_to :administrator
 
   validates :title, presence: :true
@@ -17,14 +14,19 @@ class Post < ActiveRecord::Base
     end  
 
     def check_for_slug
-      unless self.slug.present?
+      if !self.slug.present?
         generate_slug
-      end
+      elsif
+        generate_slug(self.slug)
+      end  
       return
     end
 
-    def generate_slug
-      self.slug = self.title.parameterize.dasherize
+    def generate_slug(string=nil)
+      if string.nil?
+        string = self.title
+      end  
+      self.slug = string.parameterize.dasherize
     end  
 
 end
