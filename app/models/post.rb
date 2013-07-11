@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
 
   validates :title, presence: :true
   validates :body, presence: :true
+  validates :slug, uniqueness: :true 
 
   before_validation :check_for_slug
 
