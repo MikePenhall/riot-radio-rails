@@ -7,12 +7,9 @@
   <% if post.excerpt.present? %>
     <p><%= post.excerpt %></p>
   <% else %>
-    <%= truncate(post.body.html_safe, length: 250, omission: "<a href='#{}'>...more</a>").html_safe %>
-  <% end %>    
-
-
-
-
+    <%= truncate(post.body.html_safe, length: 250, omission: "") %>
+  <% end %>   
+  <%= "<a href='posts/#{post.slug}'>...more</a>".html_safe %> 
 
 <% end %>
 

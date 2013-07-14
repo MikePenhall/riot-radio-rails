@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   layout 'application'
-  # before_filter :set_post, only: [:show, :index] 
+  before_filter :set_post, only: [:show, :index] 
 
   # GET /posts
   # GET /posts.json
@@ -17,6 +17,6 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.find_by_slug(params[:id])
     end
 end
