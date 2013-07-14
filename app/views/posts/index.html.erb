@@ -1,27 +1,19 @@
-<h1>Listing posts</h1>
+<h1>Latest posts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Excerpt</th>
-      <th>Tags</th>
-      <th>Categories</th>
-    </tr>
-  </thead>
+<% @posts.each do |post| %>
+  
+  <h3><%= post.title %></h3>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= post.excerpt %></td>
-        <td><%= post.tags %></td>
-        <td><%= post.categories %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% if post.excerpt.present? %>
+    <p><%= post.excerpt %></p>
+  <% else %>
+    <%= truncate(post.body.html_safe, length: 250, omission: "<a href='#{}'>...more</a>").html_safe %>
+  <% end %>    
+
+
+
+
+
+<% end %>
 
 <br>
