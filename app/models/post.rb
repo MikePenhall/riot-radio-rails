@@ -8,6 +8,14 @@ class Post < ActiveRecord::Base
 
   before_validation :check_for_slug
 
+  def published
+    self.published?
+  end
+
+  def draft
+    unless self.published?
+  end
+
   private
 
     def check_for_slug
