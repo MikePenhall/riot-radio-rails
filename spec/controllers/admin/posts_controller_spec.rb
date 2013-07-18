@@ -34,7 +34,7 @@ describe Admin::PostsController do
     it "assigns all posts as @posts" do
       post = Post.create! valid_attributes
       get :index
-      assigns(:posts).should eq([post])
+      assigns(:posts).first.should eq post
     end
   end
 
