@@ -7,7 +7,6 @@ class Post < ActiveRecord::Base
   validates :slug, uniqueness: :true 
 
   before_validation :check_for_slug
-  before_save :save_and_publish, if publish: :true
 
   def published?
     self.published
@@ -31,7 +30,4 @@ class Post < ActiveRecord::Base
       self.slug = string.parameterize.dasherize.downcase
     end     
 
-    def save_and_publish
-      self.published = true
-    end
 end

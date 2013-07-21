@@ -6,9 +6,7 @@ RiotRadioRails::Application.routes.draw do
 
   resources :administrators
   
-  resources :posts do
-    post :save_and_publish, on: :collection
-  end  
+  resources :posts
 
   namespace :admin do
     resources :posts

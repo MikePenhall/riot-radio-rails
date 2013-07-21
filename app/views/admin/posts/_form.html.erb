@@ -52,11 +52,11 @@
   <div>
     <%= link_to 'Cancel', admin_posts_path, :class => 'btn' %>
     <% if @post.published? %>
-      <%= link_to 'Unpublish', :class => 'btn btn-primary', publish: :false %>
+      <%= f.submit 'Unpublish', :class => 'btn btn-primary' %>
       <%= f.submit 'Update', :class => 'btn btn-primary' %>
     <% else %>
-      <%= f.submit 'Save as draft', :class => 'btn', publish: :false  %>
-      <%= f.submit 'Publish', :class => 'btn btn-primary', publish: :true %>
+      <%= f.submit 'Save as draft', :class => 'btn' %>
+      <%= f.submit 'Publish', :class => 'btn btn-primary' %>
     <% end %>    
   </div>
 <% end %>
