@@ -14,6 +14,8 @@ class Post < ActiveRecord::Base
 
   def draft?
     unless self.published
+      return true
+    end  
   end
 
   private
