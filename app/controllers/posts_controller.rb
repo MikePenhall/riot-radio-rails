@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   layout 'application'
-  before_filter :set_post, only: [:show, :index] 
+  before_filter :set_post, only: [:show, :index]
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where(:published => true)
+    @posts = Post.where(:published => true).order(:created_at).reverse
   end
 
   # GET /posts/1

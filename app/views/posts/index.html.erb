@@ -1,15 +1,15 @@
 <h1>Latest posts</h1>
 
 <% @posts.each do |post| %>
-  
+
   <h3><%= post.title %></h3>
 
   <% if post.excerpt.present? %>
     <p><%= post.excerpt %></p>
   <% else %>
     <%= truncate(post.body.html_safe, length: 250, omission: "") %>
-  <% end %>   
-  <%= "<a href='posts/#{post.slug}'>...more</a>".html_safe %> 
+  <% end %>
+  <%= "<a href='posts/#{post.slug}'>...more</a>".html_safe %>
 
 <% end %>
 

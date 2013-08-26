@@ -1,7 +1,7 @@
 class Admin::PostsController < ApplicationController
   layout 'dashboard'
   before_filter :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :set_published_status, only: [:edit, :update, :new, :create]
+  after_action :set_published_status, only: [:edit, :update, :new, :create]
 
   # GET /posts
   # GET /posts.json
@@ -69,7 +69,8 @@ class Admin::PostsController < ApplicationController
     elsif params[:commit] == "Unpublish" || params[:commit] == "Save as draft"
       @post.published = false
     end
-  end      
+    @post.save
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
